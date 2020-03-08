@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<div class='Input-box'>
+<%- include('../partials/todoInput') %>
+</div>
+<div class='list-box'>
+    <ul class='todo-list'>
+        <%items.forEach(item => {%>
+        <li class='list-item'> <%=item%> </li>
+        <%});%>
+    </ul>
+</div>
+<%- include('../partials/footer') %>

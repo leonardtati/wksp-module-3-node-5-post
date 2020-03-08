@@ -4,6 +4,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
+const { handleToDo, handleData, handleCustomer } = require('./handlers');
+
+
+
+
+
+
+
+
+
+
+
 const PORT = process.env.PORT || 8000;
 
 
@@ -21,5 +33,11 @@ express()
 
     // endpoints
 
-    .get('*', (req, res) => res.send('Dang. 404.'))
+    .get('/todos', handleToDo)
+    .post('/data', handleData)
+    .post('/order', handleCustomer)
+    
+
+    .get('*', (req, res) => res.send('Dang. 404.')) 
+    
     .listen(PORT, () => console.log(`Listening on port ${PORT}`));
